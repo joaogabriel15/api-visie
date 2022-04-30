@@ -1,7 +1,18 @@
 # api-visie
 API para avaliação de teste prático da visie feito em Flask. 
 
-## Instalação e configuração
+## Executar aplicação usando Docker
+
+#### Criando a imagem
+```
+docker build -t api-visie . 
+```
+#### Executar
+```
+docker run -d --name api-visie -p 80:5000 api-visie
+```
+
+## Instalação e configuração manual
 
 #### Criar o env e instalando as dependencias.
 ```
@@ -39,3 +50,9 @@ flask populate_db
 ```
 flask drop_db
 ```
+## Exercutar manualmente
+```
+cd  api_visie
+flask run
+```
+
