@@ -50,7 +50,7 @@ flask populate_db
 ```
 flask drop_db
 ```
-## Exercutar manualmente
+## Executar manualmente
 ```
 cd  api_visie
 flask run
