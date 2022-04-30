@@ -1,4 +1,3 @@
-import imp
 from api_visie.database import db
 from api_visie.schema import Pessoa
 from datetime import datetime
