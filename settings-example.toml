@@ -1,0 +1,6 @@
+[default]
+SQLALCHEMY_DATABASE_URI = 'sqlite:///./test.db'
+
+[production]
+
+SQLALCHEMY_DATABASE_URI = 'mariadb+pymysql://USER:PASSWORD@HOSTNAME:PORT/DATABASE'

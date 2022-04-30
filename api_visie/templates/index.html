@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="shortcut icon" href="{{url_for('static', filename='images/favicon-visie.png')}}" type="image/x-icon">
+        <link rel="stylesheet" href="{{url_for('static',
+            filename='css/style.css')}}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Visie</title>
+    </head>
+    <body>
+        <div id="container-table-person">
+            <table>
+                <tr>
+                    <th>Nome</th>
+                    <th>Data de admissão</th>
+                </tr>
+                <tr>
+
+                    {% for person in persons %}
+                    <tr>
+                        <td>{{ person.nome.split()|first|trim }} </td>
+                        <td>{{person.data_admissao.strftime("%d/%m/%Y")}}</td>
+                        <td><a href="/person/edit/{{person.id_pessoa}}"
+                                class="button_edit">Editar</a></td>
+                        <td><a href="/person/delete/{{person.id_pessoa}}"
+                                class="button_delete">Excluir</a></td>
+                    </tr>
+                    {% endfor %}
+                </tr>
+            </table>
+            <div id="pagination">
+                
+               
+            {% if prev_url %}
+            <a href="{{ prev_url }}">Voltar</a>
+            {% endif %}
+            {% if next_url %}
+            <a href="{{ next_url }}">Proxima</a>
+            {% endif %}
+
+                </ul>
+            </div>
+        </div>
+
+
+        <div id="container-form-person">
+            <form action="/person/create" id="form-person"
+                method="POST">
+
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome">
+                <label for="rg">RG:</label>
+                <input type="text" name="rg" id="rg">
+                <label for="cpf">CPF:</label>
+                <input type="text" name="cpf" id="cpf">
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" name="data_nascimento"
+                    id="data_nascimento">
+                <label for="data_admissao">Data de Admissão</label>
+                <input type="date" name="data_admissao"
+                    id="data_admissao">
+                <label for="funcao">Função</label>
+                <input type="text" name="funcao" id="funcao">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </body>
+</html>
